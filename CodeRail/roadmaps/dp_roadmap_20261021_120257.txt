@@ -1,0 +1,88 @@
+ROADMAP FOR: DP
+Rating: 1000 to 1600
+
+PROBLEMS:
+1. [1200] 1029B - Creating the Contest
+   URL: https://codeforces.com/problemset/problem/1029/B
+
+2. [1300] 777B - Game of Credit Cards
+   URL: https://codeforces.com/problemset/problem/777/B
+
+3. [1300] 1769C2 - Подкрутка II
+   URL: https://codeforces.com/problemset/problem/1769/C2
+
+4. [1500] 1391C - Cyclic Permutations 
+   URL: https://codeforces.com/problemset/problem/1391/C
+
+
+ROADMAP:
+
+Here is a targeted practice roadmap designed around your four selected problems to help you build intuition from basic 1D DP up to combinatorial counting DP.
+
+---
+
+### 1. Core Concepts to Learn
+
+Before or while working through this list, focus on these fundamental DP concepts:
+* **Prefix/Contiguous Subarray DP:** Defining $dp[i]$ as the best answer strictly ending at index $i$ (local optimum) to find the global optimum across all indices.
+* **State Expansion / Choice-based DP:** When each element has multiple valid transformations or choices (e.g., leave as $a_i$ vs. increment to $a_i + 1$), track these options as distinct states (e.g., $dp[i][0]$ and $dp[i][1]$).
+* **DP vs. Greedy Identification:** Understanding when local optimal choices suffice (Greedy) versus when you need to maintain overlapping states (DP).
+* **Complementary Counting & Permutation DP:** Using DP/recurrences to count invalid configurations and subtracting from the total ($Total - Invalid$), or building permutations element-by-element (smallest to largest or largest to smallest).
+
+---
+
+### 2. Solving Order & Why
+
+#### Step 1: 1029B - Creating the Contest (Rating: 1200)
+* **Why first:** It is the gentlest entry into DP transitions. 
+* **DP Perspective:** Let $dp[i]$ be the length of the longest valid contest ending at index $i$.
+  * Transition: If $a[i] \le 2 \cdot a[i-1]$, $dp[i] = dp[i-1] + 1$; else $dp[i] = 1$.
+* **Takeaway:** Notice that you only ever need $dp[i-1]$ to compute $dp[i]$ (space optimization from $O(n)$ to $O(1)$).
+
+#### Step 2: 1769C2 - Подкрутка II (Rating: 1300)
+* **Why second:** Introduces **choices per element**. Instead of a fixed value, each $a_i$ can be either $a_i$ or $a_i + 1$.
+* **DP Perspective:** Let $dp[v]$ be the length of the longest consecutive sequence ending in value $v$.
+  * When processing $a_i$, it can potentially become $v = a_i$ or $v = a_i + 1$.
+  * Alternatively, track $dp[i][0]$ (did not increment $a_i$) and $dp[i][1]$ (incremented $a_i$).
+* **Takeaway:** Managing transitions when the state depends on explicit decision branches.
+
+#### Step 3: 777B - Game of Credit Cards (Rating: 1300)
+* **Why third:** A bridge between Greedy and DP.
+* **DP/Greedy Perspective:** While tagged DP, it is best framed as:
+  * For min flicks received: match Sherlock's highest cards with Moriarty's equal-or-higher cards, otherwise burn Moriarty's lowest card.
+  * For max flicks given: match Moriarty's strictly higher card with Sherlock's lowest available card.
+* **Takeaway:** Recognizing when subproblems have the greedy-choice property. You should attempt to conceptualize both a matching/greedy approach and how a state-transition DP on digit counts $[0\dots9]$ could represent it.
+
+#### Step 4: 1391C - Cyclic Permutations (Rating: 1500)
+* **Why last:** Shifts focus from optimization DP (max/min) to **Counting DP / Combinatorics**.
+* **DP Perspective:** 
+  * The graph has a cycle if and only if the permutation is **not** unimodal (a unimodal sequence strictly increases then strictly decreases: $\dots < P_{max} > \dots$).
+  * Count the number of unimodal permutations: When inserting elements from $n$ down to $1$ (or $1$ up to $n$), each element (except the peak) can only go to the extreme left or extreme right of the remaining slots.
+  * Recurrence for acyclic permutations: $dp[n] = 2 \cdot dp[n-1]$ with base case $dp[1] = 1$, giving $2^{n-1}$.
+  * Final answer: $n! - 2^{n-1} \pmod{10^9 + 7}$.
+* **Takeaway:** Complementary counting. Often $DP(\text{valid}) = Total - DP(\text{invalid})$.
+
+---
+
+### 3. Common Patterns
+
+1. **State Reduction ($O(N) \to O(1)$ memory):**
+   * Seen in **1029B** and **1769C2**. When state $i$ only depends on $i-1$, replace the array with 1–2 rolling variables.
+2. **Value-as-State vs. Index-as-State:**
+   * In **1769C2**, using the actual value $v$ as an index in your DP table ($dp[v]$) simplifies index matching significantly.
+3. **Additive / Multiplicative Construction in Counting DP:**
+   * In **1391C**, constructing an object by placing elements in order (e.g., from largest to smallest) reveals that each element has exactly $k$ choices, yielding clean recurrences.
+
+---
+
+### 4. Common Mistakes
+
+* **Confusing Subarrays with Subsequences:**
+  * In **1029B**, the problem requires a *subsequence* from a sorted array, which behaves like a *contiguous subarray* because the input is strictly increasing and already sorted. Make sure you understand why sorting makes this greedy/DP valid.
+* **Overwriting DP States Mid-Iteration:**
+  * In **1769C2**, when updating DP values for the current element, ensure you do not use the updated state of $a_i$ to illegally update $a_i + 1$ within the same step.
+* **Missing Edge Cases in Modulo Arithmetic:**
+  * In **1391C**, when computing $(n! - 2^{n-1}) \pmod M$, standard subtraction can result in a negative number in C++/Java. Always use:
+    $$\text{ans} = (n! - 2^{n-1} \pmod M + M) \pmod M$$
+* **Forcing DP where Greedy is Superior:**
+  * In **777B**, attempting full 2D/3D DP without sorting first will likely lead to an overcomplicated $O(N^2)$ solution or Time Limit Exceeded (TLE). Always check if sorting beforehand simplifies transitions.

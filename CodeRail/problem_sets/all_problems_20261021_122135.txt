@@ -1,0 +1,33 @@
+PROBLEMS FOR: ALL
+Rating: 800-1800
+
+1. 2032A - Circuit (Rating: 800)
+   URL: https://codeforces.com/problemset/problem/2032/A
+
+2. 2121B - Above the Clouds (Rating: 800)
+   URL: https://codeforces.com/problemset/problem/2121/B
+
+3. 1559B - Mocha and Red and Blue (Rating: 900)
+   URL: https://codeforces.com/problemset/problem/1559/B
+
+4. 342A - Xenia and Divisors (Rating: 1200)
+   URL: https://codeforces.com/problemset/problem/342/A
+
+5. 2001C - Guess The Tree (Rating: 1500)
+   URL: https://codeforces.com/problemset/problem/2001/C
+
+6. 1858B - The Walkway (Rating: 1500)
+   URL: https://codeforces.com/problemset/problem/1858/B
+
+7. 489D - Unbearable Controversy of Being (Rating: 1700)
+   URL: https://codeforces.com/problemset/problem/489/D
+
+8. 305B - Continued Fractions (Rating: 1700)
+   URL: https://codeforces.com/problemset/problem/305/B
+
+9. 254C - Anagram (Rating: 1800)
+   URL: https://codeforces.com/problemset/problem/254/C
+
+10. 120G - Boom (Rating: 1800)
+   URL: https://codeforces.com/problemset/problem/120/G
+

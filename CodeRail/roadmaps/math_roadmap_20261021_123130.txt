@@ -1,0 +1,53 @@
+ROADMAP FOR: MATH
+Rating: 800 to 1200
+
+PROBLEMS:
+1. [800] 760A - Petr and a calendar
+   URL: https://codeforces.com/problemset/problem/760/A
+
+2. [900] 1992C - Gorilla and Permutation
+   URL: https://codeforces.com/problemset/problem/1992/C
+
+3. [1100] 2261B - What's the Capital of France?
+   URL: https://codeforces.com/problemset/problem/2261/B
+
+
+ROADMAP:
+
+Here is a structured practice roadmap for the **Math** topic based on your selected problems.
+
+---
+
+### 1. Core Concepts to Learn
+Before diving into the problems, ensure you are familiar with these mathematical concepts used in competitive programming:
+* **Modular Arithmetic & Remainders:** Dealing with days of the week, cyclic patterns, and division/modulo operations (`/` and `%`).
+* **Greedy Choice Property:** Making the locally optimal choice to achieve a globally optimal outcome (often used in permutations and constructive problems).
+* **Bitwise Operations:** Understanding how numbers are represented in binary (AND, OR, XOR, bit shifting) for bitmask-based problems.
+* **Constructive Logic:** Creating an array or configuration from scratch that satisfies specific mathematical constraints.
+
+---
+
+### 2. Order to Solve and Why
+
+The problems are ordered by increasing difficulty and conceptual shift:
+
+1. **[800] 760A - Petr and a calendar**
+   * **Why first:** This is a straightforward implementation and basic math problem. It tests your ability to handle calendar arithmetic, calculate ceiling/floor divisions, and deal with remainder logic (days of the week). It requires zero advanced algorithms, making it a great warm-up.
+2. **[900] 1992C - Gorilla and Permutation**
+   * **Why second:** This introduces *constructive algorithms* combined with math. You need to analyze how the cost function is calculated and figure out a strategy to maximize or minimize it by strategically placing large and small numbers. It teaches you how to reason about order and sums.
+3. **[1100] 2261B - What's the Capital of France?** *(Note: Standard Codeforces problem numbering usually tops out around 2000+, but the concepts remain the same).*
+   * **Why third:** This combines *greedy* strategies with *bitmasks* and *math*. At the 1100 level, you must transition from pure calculation to optimizing choices under constraints, often leveraging bitwise properties to simplify the math.
+
+---
+
+### 3. Common Patterns
+* **The "Ceiling Division" Trick:** In calendar or chunking problems (like Problem 760A), instead of writing complex `if-else` statements for leftover days, use the standard math formula for ceiling division: `(A + B - 1) / B`.
+* **Extreme Placement in Constructive Problems:** In problems like 1992C, the pattern is often to push the "best" elements (maximums/minimums) to the very beginning or the very end of an array to maximize their weight in prefix/suffix sums.
+* **Bitwise Independence:** When bitmasks are involved, remember that operations on the $i$-th bit usually do not affect the $j$-th bit ($i \neq j$), allowing you to solve problems bit by bit.
+
+---
+
+### 4. Common Mistakes
+* **Off-by-One Errors:** Very common in calendar, day-of-the-week, and array-indexing math. Always manually trace the first and last test cases (e.g., $m=1, d=7$).
+* **Integer Overflow:** Even in basic math problems, multiplying large numbers before applying modulo or division can overflow standard 32-bit integers. Use `long long` (C++) or equivalent when in doubt.
+* **Greedy Fallacy:** Assuming a greedy approach works without proving it. For constructive math problems, always double-check if your sorted/reversed arrangement actually minimizes/maximizes the target function for all edge cases ($N=1, N=2$).

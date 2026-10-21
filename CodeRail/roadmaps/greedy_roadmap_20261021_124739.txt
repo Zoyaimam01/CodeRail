@@ -1,0 +1,73 @@
+ROADMAP FOR: GREEDY
+Rating: 800 to 1600
+
+PROBLEMS:
+1. [800] 1735A - Working Week
+   URL: https://codeforces.com/problemset/problem/1735/A
+
+2. [1100] 1811C - Restore the Array
+   URL: https://codeforces.com/problemset/problem/1811/C
+
+3. [1100] 355B - Vasya and Public Transport
+   URL: https://codeforces.com/problemset/problem/355/B
+
+4. [1600] 1281B - Azamon Web Services
+   URL: https://codeforces.com/problemset/problem/1281/B
+
+
+ROADMAP:
+
+## 1. Core Mental Models
+
+Greedy algorithms are all about making the **locally optimal choice** at each step with the hope of eventually reaching the **globally optimal solution**. It’s like climbing a mountain where you always choose the steepest path upward, trusting that it will eventually lead you to the summit. 
+
+The fundamental observation you need to make is **monotonicity** or **matroid properties** (fancy words for: *does taking this choice now ever hurt my future options?*). When a problem fits a greedy pattern, you'll notice that ordering the data in a specific way (by starting time, cost, size, or value) allows you to make irrevocable decisions. Once you make a choice, you never have to look back or undo it. If you find yourself wondering "what if I made a different choice earlier?", it's usually a sign that greedy doesn't work, and you might need dynamic programming or backtracking instead.
+
+## 2. Recommended Solve Order & Why
+
+*   **[800] 1735A - Working Week**
+    Start here to get a feel for how simple constraints allow us to find a closed-form, optimal answer instantly without even needing a loop. It teaches you how to test edge cases on small numbers and formulate a greedy spacing strategy.
+*   **[1100] 355B - Vasya and Public Transport**
+    This one is a fantastic exercise in comparing independent costs and finding the minimum between local ticket purchases and unlimited passes. It reinforces breaking a problem down into isolated greedy choices before summing them up.
+*   **[1100] 1811C - Restore the Array**
+    A brilliant step up that forces you to reconstruct an original array from its pairwise maximums. It trains your brain to think backward and greedily assign the smallest possible values to satisfy adjacent constraints.
+*   **[1600] 1281B - Azamon Web Services**
+    Here's where things get spicy! This problem tests your ability to make a single optimal swap by looking ahead at the suffix of a string, proving that greedy choices sometimes require a bit of careful pre-computation to get right.
+
+## 3. Reusable Code Patterns
+
+When tackling greedy problems, I almost always start by sorting my data. Here is the mental template I keep in my head—usually involving a custom sort followed by a single pass:
+
+```cpp
+void solve() {
+    int n;
+    cin >> n;
+    vector<pair<int, int>> items(n);
+    for (int i = 0; i < n; i++) {
+        cin >> items[i].first >> items[i].second;
+    }
+
+    // Step 1: Sort by our chosen greedy criteria (e.g., ending time or cost)
+    sort(items.begin(), items.end());
+
+    int ans = 0;
+    int last_action_point = -1;
+
+    // Step 2: Make the greedy sweep
+    for (int i = 0; i < n; i++) {
+        if (items[i].first >= last_action_point) {
+            ans++;
+            last_action_point = items[i].second; // Lock in the local optimum
+        }
+    }
+
+    cout << ans << "\n";
+}
+```
+
+## 4. Traps & Common Gotchas
+
+*   **Sorting the wrong key:** The biggest trap in greedy is sorting by $A$ when you actually needed to sort by $B$ (or a combination of both). Always test your sorting logic with a quick manual dry-run on a tiny example.
+*   **Floating-point precision issues:** If your greedy choice involves ratios or division (like fractional knapsack or slope comparisons), avoid `double` or `float`. Stick to cross-multiplication (`a * d > b * c`) to maintain exact integer precision.
+*   **Greedy vs. Brute Force overlap:** Sometimes a problem *looks* greedy, but a local choice ruins a global constraint. If a problem has tight constraints ($N \le 20$), it's almost never pure greedy—think recursion or bitmasking instead. 
+*   **Off-by-one boundary conditions:** When making interval-based greedy choices, be paranoid about strict inequalities (`>` vs `>=`). Missing an equality check can cause you to skip valid overlapping elements.

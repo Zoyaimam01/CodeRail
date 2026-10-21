@@ -1,0 +1,15 @@
+PROBLEMS FOR: BINARY SEARCH
+Rating: 800-1600
+
+1. 1538C - Number of Pairs (Rating: 1300)
+   URL: https://codeforces.com/problemset/problem/1538/C
+
+2. 1324D - Pair of Topics (Rating: 1400)
+   URL: https://codeforces.com/problemset/problem/1324/D
+
+3. 2169D1 - Removal of a Sequence (Easy Version) (Rating: 1500)
+   URL: https://codeforces.com/problemset/problem/2169/D1
+
+4. 2026C - Action Figures (Rating: 1500)
+   URL: https://codeforces.com/problemset/problem/2026/C
+

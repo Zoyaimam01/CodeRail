@@ -1,0 +1,18 @@
+PROBLEMS FOR: DP
+Rating: 1000-1500
+
+1. 2244E - Masha and the Garland (Rating: 1400)
+   URL: https://codeforces.com/problemset/problem/2244/E
+
+2. 1535C - Unstable String (Rating: 1400)
+   URL: https://codeforces.com/problemset/problem/1535/C
+
+3. 505B - Mr. Kitayuta's Colorful Graph (Rating: 1400)
+   URL: https://codeforces.com/problemset/problem/505/B
+
+4. 180C - Letter (Rating: 1400)
+   URL: https://codeforces.com/problemset/problem/180/C
+
+5. 991D - Bishwock (Rating: 1500)
+   URL: https://codeforces.com/problemset/problem/991/D
+

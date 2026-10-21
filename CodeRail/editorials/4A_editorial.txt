@@ -1,0 +1,89 @@
+EDITORIAL FOR: 4A
+
+Here is a complete editorial and solution breakdown for **Codeforces 4A - Watermelon**.
+
+---
+
+### 1. Problem Explanation
+
+The problem asks us to divide a watermelon of weight $w$ (given in kilos) into **two parts**, such that each part has an **even weight**. We are allowed to cut the watermelon into two parts of unequal weights, as long as both weights are positive even integers. 
+
+We need to output `YES` if such a division is possible, and `NO` otherwise.
+
+**Example 1:**
+* Input: `8`
+* Output: `YES`
+* *Explanation:* We can divide 8 into `2` and `6` (both are even), or `4` and `4`. 
+
+**Example 2:**
+* Input: `2`
+* Output: `NO`
+* *Explanation:* The only ways to divide 2 into two positive integers are `1+1`. Neither of these parts is even.
+
+---
+
+### 2. Main Idea and Approach
+
+Let the weight of the watermelon be $n$. For a valid division into two positive even integers $x$ and $y$:
+1. $x + y = n$
+2. $x > 0$ and $y > 0$
+3. $x$ is even and $y$ is even
+
+Since the sum of two even numbers is always even, $n$ **must be an even number** for a solution to exist. This means $n \pmod 2 == 0$.
+
+However, being even is not enough. What if $n = 2$? The smallest positive even integer is $2$. If we divide $2$ into two positive even integers, the smallest possible sum is $2 + 2 = 4$. Therefore, $n$ must also be strictly **greater than 2**.
+
+Thus, the conditions for a `YES` output are:
+* $n$ is even ($n \pmod 2 == 0$)
+* $n > 2$
+
+If both conditions are met, print `YES`; otherwise, print `NO`.
+
+---
+
+### 3. Time and Space Complexity
+
+* **Time Complexity:** $\mathcal{O}(1)$ because we only perform a few basic arithmetic and logical operations.
+* **Space Complexity:** $\mathcal{O}(1)$ as we only store a single integer variable.
+
+---
+
+### 4. Solution Code in C++ and Python
+
+#### Python 3 (Your Attempt)
+Your solution is already optimal and correct!
+```python
+n = int(input())
+print("YES" if n % 2 == 0 and n > 2 else "NO")
+```
+
+#### C++
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    // Fast I/O
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int n;
+    cin >> n;
+
+    if (n % 2 == 0 && n >  2) {
+        cout << "YES\n";
+    } else {
+        cout << "NO\n";
+    }
+
+    return 0;
+}
+```
+
+---
+
+### 5. Common Pitfalls
+
+* **Forgetting the $n > 2$ condition:** A common mistake for beginners is to only check `n % 2 == 0`. If you do this, an input of `2` will incorrectly output `YES`. 
+* **Zero or negative weights:** The problem states that the watermelon weight $w \ge 1$, but even if $0$ was tested, $0$ is technically even, which makes the $n > 2$ check doubly important (since parts must be *positive* integers).

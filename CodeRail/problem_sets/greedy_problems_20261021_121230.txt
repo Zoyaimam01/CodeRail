@@ -1,0 +1,18 @@
+PROBLEMS FOR: GREEDY
+Rating: 1200-1600
+
+1. 1992D - Test of Love (Rating: 1200)
+   URL: https://codeforces.com/problemset/problem/1992/D
+
+2. 2170B - Addition on a Segment (Rating: 1200)
+   URL: https://codeforces.com/problemset/problem/2170/B
+
+3. 1585C - Minimize Distance (Rating: 1300)
+   URL: https://codeforces.com/problemset/problem/1585/C
+
+4. 445B - DZY Loves Chemistry (Rating: 1400)
+   URL: https://codeforces.com/problemset/problem/445/B
+
+5. 525B - Pasha and String (Rating: 1400)
+   URL: https://codeforces.com/problemset/problem/525/B
+

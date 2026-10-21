@@ -1,0 +1,19 @@
+HINTS FOR: 171B
+
+Here are 3 progressive hints for **Codeforces 171B - Starfish**:
+
+### Hint 1: Basic idea / observation
+Look at the pattern of the star shape as $n$ increases. 
+- For $n = 1$, the star has a central triangle and some surrounding pieces. Count the total number of blocks (or points) carefully.
+- For $n = 2$, notice how many *new* blocks are added to the structure from $n = 1$. 
+- Try to write down the number of blocks for $n = 1, 2, 3, 4$ and look for a quadratic sequence (an arithmetic progression of the second order, or differences that increase by a constant amount).
+
+### Hint 2: Algorithm and time complexity to aim for
+You don't need to simulate the grid or use complex geometry. By analyzing the sequence from Hint 1, you can derive a closed-form mathematical formula in terms of $n$. 
+- Since the input $n$ can be up to $10^4$, your solution should run in **$O(1)$ time** and **$O(1)$ space**.
+
+### Hint 3: High level steps to solve
+1. Derive the formula for the total number of blocks $f(n)$ for a given $n$. 
+   * *Self-check/Spoiler:* The formula starts with $1$ (for $n=1$), and the number of blocks added in each step grows linearly. Specifically, the number of blocks is $1 + 6 \times \frac{n(n-1)}{2}$? Wait, check the exact problem statement's geometry—each step adds 12 triangles to the 6 points of the star. The correct recurrence leads to $1 + 12 \times \frac{n(n-1)}{2}$ or similar. Simplify your derived quadratic equation.
+2. Read the integer $n$ from standard input.
+3. Plug $n$ into your formula, print the result, and ensure you use standard integer types that won't overflow (though standard 32-bit signed integers are usually sufficient for $n = 10^4$, using 64-bit integers `long long` in C++ is a safe habit).

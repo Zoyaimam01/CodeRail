@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#fffdfb" />
+  <meta name="description" content="CodeRail — a playful AI-powered Codeforces practice studio for roadmaps, problems, hints and editorials." />
+  <title>CodeRail — Make the next problem smaller</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23f23b9c'/%3E%3Ctext x='50' y='61' font-size='40' text-anchor='middle' font-family='Arial' font-weight='900' fill='%23131212'%3Ecr%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="CodeRail home">
+        <span class="brand-mark"><span>cr</span><i></i></span>
+      </a>
+      <div class="topbar-right">
+        <nav class="main-nav" aria-label="Main navigation">
+          <button class="nav-link nav-work selected" data-tool="roadmap">WORK</button>
+          <button class="nav-link nav-sidequests" data-tool="problems">SIDEQUESTS</button>
+          <button class="nav-link" data-tool="hints">HINTS</button>
+          <button class="nav-link" data-tool="editorial">EDITORIALS</button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <svg class="pink-ribbon" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M-120 130 C170 185 290 235 490 405 C665 555 645 760 865 790 C1090 825 1270 585 1550 370 L1550 520 C1280 770 1070 945 820 880 C590 820 535 610 360 480 C190 355 55 325 -120 290 Z" fill="#f48dcc" opacity=".88"/>
+        </svg>
+        <div class="float-dot dot-blue d1" aria-hidden="true"></div><div class="float-dot dot-orange d2" aria-hidden="true"></div>
+        <div class="float-dot dot-lime d3" aria-hidden="true"></div><div class="float-dot dot-orange d4" aria-hidden="true"></div>
+        <div class="float-dot dot-lime d5" aria-hidden="true"></div><div class="float-dot dot-blue d6" aria-hidden="true"></div>
+        <div class="float-dot dot-orange d7" aria-hidden="true"></div><div class="float-dot dot-blue d8" aria-hidden="true"></div>
+        <div class="float-dot dot-lime d9" aria-hidden="true"></div><div class="float-dot dot-orange d10" aria-hidden="true"></div>
+
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-star">✳</span> YOUR FRIENDLY PRACTICE STUDIO <span class="eyebrow-star">✳</span></div>
+          <h1 id="hero-title">Hi, I’m <span class="brand-word">CodeRail</span></h1>
+          <p class="hero-subtitle">your <span class="highlight highlight-lime">Codeforces coach</span> for curious minds</p>
+          <p class="hero-description">and here’s a little help for your next big <span class="scribble-word">aha moment</span><span class="scribble-line" aria-hidden="true"></span></p>
+        </div>
+
+        <div class="feature-cards" aria-label="Explore CodeRail tools">
+          <button class="feature-card card-roadmap" data-tool="roadmap">
+            <span class="card-kicker">01 / PLAN</span><span class="feature-title">Build a<br/>Roadmap<span class="mini-spark">✦</span></span>
+            <span class="card-art art-roadmap" aria-hidden="true">
+              <span class="art-window"><span class="window-dots">•••</span><span class="code-line wide"></span><span class="code-line"></span><span class="code-line short"></span><span class="art-play">▶</span></span>
+              <span class="art-pencil">✳</span><span class="art-arrow">↗</span>
+            </span>
+            <span class="card-caption">Concepts → practice → progress <span>↗</span></span>
+          </button>
+          <button class="feature-card card-problems" data-tool="problems">
+            <span class="card-kicker">02 / EXPLORE</span><span class="feature-title">Find your<br/>next problem<span class="mini-spark">✦</span></span>
+            <span class="card-art art-problems" aria-hidden="true">
+              <span class="magnifier"><i></i></span><span class="problem-sheet"><b>CF</b><i></i><i></i><i></i><small>800—1600</small></span><span class="tiny-star">✦</span>
+            </span>
+            <span class="card-caption">Real problems. Your rating range. <span>↗</span></span>
+          </button>
+          <button class="feature-card card-coach" data-tool="hints">
+            <span class="card-kicker">03 / UNSTICK</span><span class="feature-title">Hints +<br/>editorials<span class="mini-spark">✦</span></span>
+            <span class="card-art art-coach" aria-hidden="true">
+              <span class="bubble bubble-one">?</span><span class="bubble bubble-two">!</span><span class="hand hand-left">✋</span><span class="hand hand-right">✋</span><span class="orbit orbit-one"></span><span class="orbit orbit-two"></span>
+            </span>
+            <span class="card-caption">A nudge first. The answer later. <span>↗</span></span>
+          </button>
+        </div>
+
+        <div class="hero-bottom-note"><span class="note-arrow">↘</span> A little structure goes a long way <span class="note-spark">✳</span></div>
+        <div class="box-illustration" aria-hidden="true"><div class="box-lid lid-left"></div><div class="box-lid lid-right"></div><div class="box-body"></div><div class="box-front"></div><div class="box-cutout"></div><div class="box-shadow"></div></div>
+      </section>
+
+      <section class="workspace-section" id="workspace" aria-labelledby="workspace-heading">
+        <div class="section-heading-row">
+          <div><p class="section-eyebrow">THE PRACTICE DESK <span>✳</span></p><h2 id="workspace-heading">What are we working on?</h2><p class="section-subtitle">Pick a lane. Start small. Keep going.</p></div>
+          <div class="desk-stamp" aria-hidden="true"><span>MAKE IT</span><b>CLICK!</b><span>ONE PROBLEM AT A TIME</span></div>
+        </div>
+        <div class="workspace-layout">
+          <aside class="tool-sidebar" aria-label="Practice tools">
+            <button class="tool-tab active" data-tool="roadmap"><span class="tab-number">01</span><span class="tab-symbol symbol-yellow">↗</span><span class="tab-label">Roadmap</span><span class="tab-arrow">→</span></button>
+            <button class="tool-tab" data-tool="problems"><span class="tab-number">02</span><span class="tab-symbol symbol-blue">⌕</span><span class="tab-label">Problem sets</span><span class="tab-arrow">→</span></button>
+            <button class="tool-tab" data-tool="hints"><span class="tab-number">03</span><span class="tab-symbol symbol-pink">✳</span><span class="tab-label">Get hints</span><span class="tab-arrow">→</span></button>
+            <button class="tool-tab" data-tool="editorial"><span class="tab-number">04</span><span class="tab-symbol symbol-green">✎</span><span class="tab-label">Editorials</span><span class="tab-arrow">→</span></button>
+            <div class="sidebar-tip"><span class="tip-star">✦</span><b>tiny tip</b><p>Try one hint before looking at a full solution. Future-you will be glad.</p><span class="tip-doodle">⌁⌁⌁</span></div>
+          </aside>
+          <div class="tool-panel" id="tool-panel" aria-live="polite"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer"><a class="footer-brand" href="#top"><span class="brand-mark small"><span>cr</span><i></i></span> CodeRail</a><span>Keep showing up. The patterns will follow.</span><a href="https://codeforces.com/problemset" target="_blank" rel="noreferrer">Explore Codeforces ↗</a></footer>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="marked.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

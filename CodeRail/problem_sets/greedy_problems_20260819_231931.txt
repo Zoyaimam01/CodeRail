@@ -1,0 +1,16 @@
+================================================================================
+CODEFORCES PROBLEM SET: GREEDY
+Generated: 2026-08-19 23:19:31
+Rating Range: 800 - 1000 | Total Found: 2
+================================================================================
+
+[1] 1673A - Subtle Substring Subtraction
+    Rating: 800
+    Tags:   games, greedy, strings
+    URL:    https://codeforces.com/problemset/problem/1673/A
+
+[2] 1790B - Taisia and Dice
+    Rating: 800
+    Tags:   greedy, math
+    URL:    https://codeforces.com/problemset/problem/1790/B
+

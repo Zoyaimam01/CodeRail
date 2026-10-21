@@ -1,0 +1,84 @@
+ROADMAP FOR: GREEDY
+Rating: 800 to 1600
+
+PROBLEMS:
+1. [900] 369A - Valera and Plates
+   URL: https://codeforces.com/problemset/problem/369/A
+
+2. [1000] 888B - Buggy Robot
+   URL: https://codeforces.com/problemset/problem/888/B
+
+3. [1000] 178A2 - Educational Game
+   URL: https://codeforces.com/problemset/problem/178/A2
+
+4. [1200] 1734C - Removing Smallest Multiples
+   URL: https://codeforces.com/problemset/problem/1734/C
+
+
+ROADMAP:
+
+## 1. Core Mental Models
+
+Greedy is all about making the **locally optimal choice** at every step without ever looking back, trusting that these micro-decisions will magically compound into the globally best outcome. 
+
+When you stare at a greedy problem, your brain should be hunting for a **sorting criteria** or a **priority rule**. Ask yourself: *"If I have to satisfy someone right now, who gets priority? The one with the tightest constraint, the smallest value, or the most demanding requirement?"* Once you prove to yourself that sacrificing a little bit of future flexibility for an immediate, undeniable win is safe, you've found your greedy choice.
+
+## 2. Recommended Solve Order & Why
+
+- **[900] 369A - Valera and Plates**
+  Kick things off here to get comfortable rationing limited resources. This teaches you the golden rule of greedy: **always satisfy the strictest constraint first** (in this case, single-dish bowls) before dipping into your flexible fallback resources (washable bowls).
+- **[1000] 888B - Buggy Robot**
+  A fun spatial awareness puzzle that shows how greedy can just mean pairing opposites. You'll realize that moves only matter if they cancel each other out, reinforcing how to clean up redundant operations instantly.
+- **[1000] 178A2 - Educational Game**
+  This one stretches your ability to make large jumps greedily from left to right. It builds your confidence in simulating operations efficiently without getting bogged down in brute-force trailing updates.
+- **[1200] 1734C - Removing Smallest Multiples**
+  Our final boss for this set blends greedy logic with a sieve-like mindset. It trains you to pay the minimum cost to eliminate elements by targeting their smallest valid factors first, stopping you from overpaying for operations.
+
+## 3. Reusable Code Patterns
+
+Whenever I approach a greedy problem that requires sorting or resource tracking, my mental template usually looks like this structure in C++:
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+void solve() {
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    for (int i = 0; i < n; i++) cin >> a[i];
+
+    // 1. Sort or organize to make the greedy choice obvious
+    sort(a.begin(), a.end());
+
+    long long current_resource = 0;
+    int penalty_count = 0;
+
+    // 2. Iterate and make local decisions
+    for (int i = 0; i < n; i++) {
+        if (can_satisfied_cheaply(a[i], current_resource)) {
+            // Apply optimal local choice
+            consume_cheap(a[i], current_resource);
+        } else {
+            // Fall back to alternative resource
+            consume_fallback(a[i], current_resource);
+            penalty_count++;
+        }
+    }
+
+    cout << penalty_count << "\n";
+}
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    solve();
+    return 0;
+}
+```
+
+## 4. Traps & Common Gotchas
+
+- **Forgetting to Sort:** Greedy algorithms almost always rely on data being processed in a strict order (ascending, descending, or by earliest deadline). If you forget to sort your inputs or priorities, your local choices will be completely random.
+- **Integer Overflow on Costs:** Greedy choices often accumulate costs or counts quickly. Always use `long long` for accumulators, even if the problem statement hints that individual values fit nicely inside a standard 32-bit integer.
+- **Greedy vs. DP Trap:** Don't force a greedy solution when future choices heavily restrict past options. If you catch yourself trying to write complex backtracking or recursive memoization inside a greedy loop, stop—you might actually be looking at a Dynamic Programming problem.

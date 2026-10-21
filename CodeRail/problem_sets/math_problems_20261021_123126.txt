@@ -1,0 +1,15 @@
+PROBLEMS FOR: MATH
+Rating: 800-1200
+
+1. 723A - The New Year: Meeting Friends (Rating: 800)
+   URL: https://codeforces.com/problemset/problem/723/A
+
+2. 1332A - Exercising Walk (Rating: 1100)
+   URL: https://codeforces.com/problemset/problem/1332/A
+
+3. 1933D - Turtle Tenacity: Continual Mods (Rating: 1200)
+   URL: https://codeforces.com/problemset/problem/1933/D
+
+4. 1221C - Perfect Team (Rating: 1200)
+   URL: https://codeforces.com/problemset/problem/1221/C
+

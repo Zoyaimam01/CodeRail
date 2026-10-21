@@ -1,0 +1,60 @@
+Here is a structured practice roadmap focused on mastering foundational **Greedy** strategies using the two specified problems.
+
+---
+
+### 1. Core Concepts to Learn
+
+Before jumping into the problems, build an intuition for these greedy fundamentals:
+
+*   **The Greedy Choice Property**: A global optimum can be reached by making locally optimal (best immediate) choices. At this rating level (800–1000), you usually don't need formal mathematical proofs (like matroid theory), but you should be able to informally justify: *"Why does taking this option now never hurt future options?"*
+*   **Place-Value Significance (Digit Mechanics)**: 
+    *   In base-10 numerical string problems, digits to the left have exponentially higher weight ($10^k$). A greedy algorithm on numbers almost always prioritizes making the leftmost digits as large (or small) as possible, regardless of what happens to the lower digits.
+*   **Game State Invariants & Parity**:
+    *   In 2-player games tagged *math/greedy*, players often make choices to preserve an invariant (e.g., maintaining odd/even distance, controlling symmetric states, or forcing the opponent into a dead end).
+*   **Exchange Argument (Intuition)**:
+    *   If you have a candidate solution, can you swap any two elements to get a better result? If swapping never helps, your greedy strategy is correct.
+
+---
+
+### 2. Recommended Order to Solve and Why
+
+#### **Step 1: 2236A - Games on the Train (Rating: 800)**
+*   **Why First:** 
+    *   Rated 800, this problem serves as a low-friction entry point.
+    *   It trains you to look past the "simulation" trap. Game problems at this level rarely require simulating turns; instead, they require finding the **underlying mathematical rule** that dictates optimal play.
+*   **Focus Area:**
+    *   Analyze the win conditions for both players.
+    *   Determine if a player can always mimic the other, force parity, or close the distance greedily. The solution is almost certainly $O(1)$ math derived from greedy logic.
+
+#### **Step 2: 2230B - Digit String (Rating: 1000)**
+*   **Why Second:** 
+    *   Rated 1000, this problem steps up in implementation complexity and requires careful handling of constraints and edge cases.
+    *   It applies greedy logic to **sequential decision-making** (processing a string character-by-character or building a number).
+*   **Focus Area:**
+    *   Exploit the place-value property (left-to-right significance).
+    *   Carefully track state transitions and boundary conditions while iterating.
+
+---
+
+### 3. Common Patterns
+
+1.  **Left-to-Right Greedy Processing (Strings & Numbers)**:
+    *   To make a number as large as possible, pick the largest legal digit for the highest place value.
+    *   To make it as small as possible, pick the smallest valid digit (remembering that the first digit cannot be `0` if leading zeros are forbidden).
+2.  **Extremal Choice (Min/Max First)**:
+    *   Sort or greedily pick extremes (e.g., always moving as far as possible, taking the largest available increment, or consuming the smallest cost).
+3.  **Parity & Distance Reductions (Game Theory)**:
+    *   In train/movement games, players often greedily minimize their distance to a goal or maximize the gap between themselves and the chaser. Look at $(pos_A - pos_B) \pmod 2$ or simple directional distance.
+
+---
+
+### 4. Common Mistakes to Avoid
+
+*   **Overcomplicating into DP or Game Trees**:
+    *   At the 800–1000 level, avoid reaching for Dynamic Programming, minimax trees, or BFS/DFS. If the tags are `math` and `greedy`, the solution typically runs in $O(1)$ or $O(N)$.
+*   **Leading Zero Bugs**:
+    *   In digit problems, forgetting that a positive integer cannot start with `'0'` often causes Wrong Answer on Test 2.
+*   **Integer Overflow**:
+    *   Treat long digit sequences as **strings** rather than parsing them into standard 64-bit integers (`long long` in C++ caps at $\approx 9 \times 10^{18}$, which is only 19 digits).
+*   **Assuming Greedy Without Counter-Checking**:
+    *   Greedy fails when a greedy choice in step 1 starves you of much better choices in step 2. Before submitting, quickly construct a small test case (e.g., $N = 3$ or $N = 4$) to verify that your greedy rule doesn't fail.

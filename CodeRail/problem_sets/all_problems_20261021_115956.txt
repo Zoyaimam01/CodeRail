@@ -1,0 +1,33 @@
+PROBLEMS FOR: ALL
+Rating: 800-1800
+
+1. 1777A - Everybody Likes Good Arrays! (Rating: 800)
+   URL: https://codeforces.com/problemset/problem/1777/A
+
+2. 976A - Minimum Binary Number (Rating: 800)
+   URL: https://codeforces.com/problemset/problem/976/A
+
+3. 1154B - Make Them Equal (Rating: 1200)
+   URL: https://codeforces.com/problemset/problem/1154/B
+
+4. 462B - Appleman and Card Game (Rating: 1300)
+   URL: https://codeforces.com/problemset/problem/462/B
+
+5. 2181B - Battle of Arrays (Rating: 1400)
+   URL: https://codeforces.com/problemset/problem/2181/B
+
+6. 1061B - Views Matter (Rating: 1400)
+   URL: https://codeforces.com/problemset/problem/1061/B
+
+7. 1627C - Not Assigning (Rating: 1400)
+   URL: https://codeforces.com/problemset/problem/1627/C
+
+8. 1236B - Alice and the List of Presents (Rating: 1500)
+   URL: https://codeforces.com/problemset/problem/1236/B
+
+9. 709B - Checkpoints (Rating: 1500)
+   URL: https://codeforces.com/problemset/problem/709/B
+
+10. 2167G - Mukhammadali and the Smooth Array (Rating: 1600)
+   URL: https://codeforces.com/problemset/problem/2167/G
+

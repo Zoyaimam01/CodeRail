@@ -1,0 +1,74 @@
+ROADMAP FOR: BINARY SEARCH
+Rating: 800 to 1600
+
+PROBLEMS:
+1. [1300] 1538C - Number of Pairs
+   URL: https://codeforces.com/problemset/problem/1538/C
+
+2. [1400] 1324D - Pair of Topics
+   URL: https://codeforces.com/problemset/problem/1324/D
+
+3. [1500] 2026C - Action Figures
+   URL: https://codeforces.com/problemset/problem/2026/C
+
+4. [1500] 2169D1 - Removal of a Sequence (Easy Version)
+   URL: https://codeforces.com/problemset/problem/2169/D1
+
+
+ROADMAP:
+
+Here is a comprehensive practice roadmap tailored for mastering **Binary Search**, specifically curated around your selected problems.
+
+---
+
+### 1. Core Concepts to Learn
+Before diving into the problems, ensure you are familiar with these foundational concepts:
+*   **Standard Binary Search:** Finding an exact value in a sorted array in $O(\log n)$ time.
+*   **Binary Search on the Answer (Predicate Function):** When the problem asks for the *maximum/minimum valid value*, and you can easily verify if a given value $X$ is valid. The condition must be monotonic (e.g., if $X$ works, all values $>X$ also work).
+*   **Two Pointers vs. Binary Search:** Recognizing when a problem can be solved by sorting and maintaining two converging pointers versus using `std::lower_bound` / `std::upper_bound`.
+*   **Handling Inequalities:** Transforming algebraic conditions (like $A[i] + A[j]$ within a range) into searchable expressions (e.g., $A[j] \ge L - A[i]$).
+
+---
+
+### 2. Order to Solve the Problems and Why
+
+The problems are ordered in a progression of difficulty and conceptual shift—moving from straightforward range-counting to optimization and greedy applications.
+
+#### **Step 1: 1324D - Pair of Topics** [Difficulty: 1400]
+*   **Link:** [Pair of Topics](https://codeforces.com/problemset/problem/1324/D)
+*   **Why first?** This is the quintessential introductory problem for combining sorting with binary search. You are given two arrays, $A$ and $B$, and need to satisfy $A_i + A_j > B_i + B_j$. 
+*   **Actionable Takeaway:** Learn how to algebraically manipulate the inequality into $A_i - B_i > B_j - A_j$, allowing you to transform the problem into searching for elements greater than a target value in a sorted array using `std::upper_bound`.
+
+#### **Step 2: 1538C - Number of Pairs** [Difficulty: 1300]
+*   **Link:** [Number of Pairs](https://codeforces.com/problemset/problem/1538/C)
+*   **Why second?** Although rated slightly lower than the previous one, it builds directly on the exact same skill set. Instead of a strict greater-than inequality, this asks for pairs whose sum falls within a **range** $[l, r]$.
+*   **Actionable Takeaway:** Learn the "difference technique" for range queries: counting pairs with sums $\le r$ and subtracting pairs with sums $< l$ using `std::upper_bound` and `std::lower_bound`.
+
+#### **Step 3: 2169D1 - Removal of a Sequence (Easy Version)** [Difficulty: 1500]
+*   **Link:** [Removal of a Sequence (Easy Version)](https://codeforces.com/problemset/problem/2169/D1)
+*   **Why third?** This shifts the paradigm away from array searching and introduces **Binary Search on the Answer**. 
+*   **Actionable Takeaway:** Practice identifying monotonicity. Instead of simulating the process forward (which might be too slow), you guess the answer (the initial value or number of operations) and write a function to check if it's feasible.
+
+#### **Step 4: 2026C - Action Figures** [Difficulty: 1500]
+*   **Link:** [Action Figures](https://codeforces.com/problemset/problem/2026/C)
+*   **Why last?** This combines binary search with greedy choice logic. You are optimizing a sequence of actions, and it's non-trivial to see why binary search applies.
+*   **Actionable Takeaway:** Learn how to use binary search to find the "tipping point" or optimal threshold when paired with a greedy verification function (often utilizing data structures like `std::set` or `std::deque`).
+
+---
+
+### 3. Common Patterns
+*   **The Transformation Pattern:** Rearranging $A + B \le C$ into $A \le C - B$ so you can binary search for the boundary.
+*   **Prefix/Range Counting (`lower_bound` / `upper_bound`):** 
+    *   `lower_bound(val)` gives the first element $\ge val$.
+    *   `upper_bound(val)` gives the first element $> val$.
+    *   Number of elements in range $[L, R]$ = `upper_bound(R) - lower_bound(L)`.
+*   **Monotonic Check (`check(mid)`):** In optimization problems, defining a boolean function that returns `true` if a resource/target is sufficient, and `false` otherwise.
+
+---
+
+### 4. Common Mistakes
+*   **Off-by-One Errors:** Getting stuck in infinite loops because of `low = mid` vs `low = mid + 1` or using strict inequalities (`<` vs `<=`) in the `while (low <= high)` loop. 
+    * *Tip:* When using `low = mid + 1` and `high = mid - 1`, ensure your `check` function clearly separates valid and invalid states.
+*   **Integer Overflow:** Forgetting that sums like $A_i + A_j$ or intermediate calculation steps in Binary Search on the Answer can exceed standard 32-bit integer limits (use `long long`).
+*   **Forgetting to Sort:** Binary search algorithms (`std::binary_search`, `std::lower_bound`, etc.) **require** the underlying container to be sorted. Always check `sort(arr.begin(), arr.end());` before querying.
+*   **Self-Pairing in Counting Problems:** When counting pairs $(i, j)$ such that $A_i + A_j$ satisfies a condition, accidentally counting $i = j$ or double-counting pairs $(i, j)$ and $(j, i)$. Ensure your loop indices (e.g., iterating $i$ and searching for valid $j > i$) prevent this.

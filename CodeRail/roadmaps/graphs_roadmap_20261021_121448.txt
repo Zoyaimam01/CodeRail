@@ -1,0 +1,71 @@
+ROADMAP FOR: GRAPHS
+Rating: 1000 to 1600
+
+PROBLEMS:
+1. [1400] 520B - Two Buttons
+   URL: https://codeforces.com/problemset/problem/520/B
+
+2. [1600] 1609D - Social Network
+   URL: https://codeforces.com/problemset/problem/1609/D
+
+3. [1600] 1476C - Longest Simple Cycle
+   URL: https://codeforces.com/problemset/problem/1476/C
+
+4. [1600] 615B - Longtail Hedgehog
+   URL: https://codeforces.com/problemset/problem/615/B
+
+
+ROADMAP:
+
+Here is a structured practice roadmap for mastering the selected graph problems. 
+
+---
+
+### 1. Core Concepts to Learn
+Before diving into the problems, ensure you are familiar with the following fundamental graph concepts:
+*   **Graph Representation:** Adjacency lists vs. adjacency matrices, and how to model implicit graphs (where nodes and edges aren't explicitly given).
+*   **Breadth-First Search (BFS) & Shortest Path:** Finding the shortest path in an **unweighted** graph using BFS.
+*   **Disjoint Set Union (DSU):** A data structure to efficiently keep track of connected components and handle dynamic connectivity queries with path compression and union by rank/size.
+*   **Dynamic Programming on Graphs (DAGs):** Combining DP with topological sorting or directed acyclic graphs to compute paths/longest paths efficiently.
+*   **Tree/Cycle DP:** Breaking down tree structures and simple cycle graphs to compute local and global optimal paths.
+
+---
+
+### 2. Order to Solve and Why
+
+The recommended solving order transitions from basic traversal and shortest paths to DSU, and finally to DP on graphs.
+
+#### **Step 1: [1400] 520B - Two Buttons**
+*   **Link:** [520B - Two Buttons](https://codeforces.com/problemset/problem/520/B)
+*   **Why first:** This problem introduces the concept of **implicit graphs**. You don't need to build a traditional adjacency list. Instead, numbers from $1$ to $10^4$ (or higher) act as nodes, and the two allowed operations act as directed edges. 
+*   **Focus:** Model the problem as finding the shortest path in an unweighted graph using BFS (or work backwards using greedy math to make it even simpler).
+
+#### **Step 2: [1600] 1609D - Social Network**
+*   **Link:** [1609D - Social Network](https://codeforces.com/problemset/problem/1609/D)
+*   **Why second:** This shifts focus to **connectivity and DSU**. As edges are added sequentially, you need to efficiently maintain connected components and find the sum of the sizes of the largest components.
+*   **Focus:** Implement DSU with component size tracking. Understand how extra edges (redundant connections within the same component) give you "free" choices to merge other components.
+
+#### **Step 3: [1600] 1476C - Longest Simple Cycle**
+*   **Link:** [1476C - Longest Simple Cycle](https://codeforces.com/problemset/problem/1476/C)
+*   **Why third:** This introduces **DP on graph structures (specifically, ladder-like cycles)**. You need to maintain running states to compute the longest simple cycle dynamically as you iterate through the chains.
+*   **Focus:** Identify subproblem dependencies and use greedy-choice properties combined with DP state transitions.
+
+#### **Step 4: [1600] 615B - Longtail Hedgehog**
+*   **Link:** [615B - Longtail Hedgehog](https://codeforces.com/problemset/problem/615B - Longtail Hedgehog)
+*   **Why last:** This problem solidifies **Dynamic Programming on general graphs / DAGs**. Because the graph edges always go from a smaller index to a larger index, the graph is naturally a DAG, allowing straightforward DP.
+*   **Focus:** Combining degree-counting with memoization/DP to compute the "longest path ending/starting at node $u$".
+
+---
+
+### 3. Common Patterns
+*   **Backward BFS / Reverse Thinking (520B):** Sometimes going from Target $\to$ Start is much easier and has a smaller branching factor than Start $\to$ Target.
+*   **Component Size Maximization (1609D):** When asked to maximize the sum of the top $K$ independent components, DSU combined with sorting component sizes is the go-to technique.
+*   **State Transition on Chains (1476C & 615B):** When problems involve linear dependencies or tree/chain structures, define $DP[i]$ as the optimal answer ending or passing through node $i$.
+
+---
+
+### 4. Common Mistakes
+*   **Memory Limit Exceeded (MLE) / Time Limit Exceeded (TLE) in BFS (520B):** Forgetting to use a `visited` array or `dist` array in BFS, leading to infinite loops or visiting the same state multiple times.
+*   **Forgetting Path Compression in DSU (1609D):** Implementing DSU without path compression or union by rank/size, resulting in $O(N)$ per operation instead of nearly $O(1)$ ($O(\alpha(N))$).
+*   **Integer Overflow (1476C & 615B):** Chain lengths, degrees, or path weights can sometimes exceed standard 32-bit integer limits. Always use `long long` where necessary.
+*   **Off-by-one errors in graph indexing (615B):** Confusing 0-based and 1-based indexing, especially when dealing with degrees and neighbor loops.

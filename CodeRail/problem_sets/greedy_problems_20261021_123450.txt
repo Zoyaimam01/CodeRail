@@ -1,0 +1,15 @@
+PROBLEMS FOR: GREEDY
+Rating: 800-1600
+
+1. 1855B - Longest Divisors Interval (Rating: 900)
+   URL: https://codeforces.com/problemset/problem/1855/B
+
+2. 1472D - Even-Odd Game (Rating: 1200)
+   URL: https://codeforces.com/problemset/problem/1472/D
+
+3. 1384A - Common Prefixes (Rating: 1200)
+   URL: https://codeforces.com/problemset/problem/1384/A
+
+4. 1753A2 - Make Nonzero Sum (hard version) (Rating: 1500)
+   URL: https://codeforces.com/problemset/problem/1753/A2
+

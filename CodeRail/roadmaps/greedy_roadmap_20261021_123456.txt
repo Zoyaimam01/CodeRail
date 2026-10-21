@@ -1,0 +1,69 @@
+ROADMAP FOR: GREEDY
+Rating: 800 to 1600
+
+PROBLEMS:
+1. [900] 1855B - Longest Divisors Interval
+   URL: https://codeforces.com/problemset/problem/1855/B
+
+2. [1200] 1384A - Common Prefixes
+   URL: https://codeforces.com/problemset/problem/1384/A
+
+3. [1200] 1472D - Even-Odd Game
+   URL: https://codeforces.com/problemset/problem/1472/D
+
+4. [1500] 1753A2 - Make Nonzero Sum (hard version)
+   URL: https://codeforces.com/problemset/problem/1753/A2
+
+
+ROADMAP:
+
+Here is a structured practice roadmap for mastering the **Greedy** topic using the provided problems.
+
+---
+
+### 1. Core Concepts to Learn
+Before diving into the problems, ensure you understand the fundamental principles behind greedy algorithms:
+*   **Greedy Choice Property:** Making the locally optimal choice at each step leads to a globally optimal solution.
+*   **Sorting as a Tool:** Many greedy problems require sorting the input first (by size, parity, value, etc.) so that you can make optimal decisions sequentially.
+*   **Invariant Maintenance:** Proving (or convincing yourself) that maintaining a certain state or condition after every greedy choice preserves the possibility of reaching the best solution.
+*   **Constructive Thinking:** Often, greedy algorithms go hand-in-hand with construction—building the solution step-by-step under strict constraints.
+
+---
+
+### 2. Order to Solve and Why
+
+The problems are ordered by difficulty and the type of reasoning required, starting from a pure mathematical observation to complex state-tracking.
+
+#### **Step 1: [900] 1855B - Longest Divisors Interval**
+*   **Link:** [Codeforces 1855B](https://codeforces.com/problemset/problem/1855/B)
+*   **Why first:** This problem introduces the concept of structural limits. It relies on a heavy number-theory observation: the LCM of a contiguous sequence of integers $1, 2, \dots, k$ grows extremely fast. If a number $n$ is divisible by $1$ through $k$, it forces you to think about how far an unbroken chain of divisors can possibly go. 
+*   **Goal:** Learn how greedy bounds work when constrained by mathematical properties.
+
+#### **Step 2: [1200] 1472D - Even-Odd Game**
+*   **Link:** [Codeforces 1472D](https://codeforces.com/problemset/problem/1472/D)
+*   **Why second:** This introduces **game theory combined with greedy sorting**. Both players want to maximize their own score while implicitly (or explicitly) minimizing or denying the other player's score. By sorting the array in descending order, the locally optimal choice for *any* player at any turn becomes obvious: pick the largest available number, regardless of whether it benefits you or hurts the opponent.
+*   **Goal:** Learn how sorting enables simple, optimal turn-based decision making.
+
+#### **Step 3: [1200] 1384A - Common Prefixes**
+*   **Link:** [Codeforces 1384A](https://codeforces.com/problemset/problem/1384/A)
+*   **Why third:** This is a **constructive greedy** problem involving strings. Instead of optimizing a numerical score, you must actively construct strings such that adjacent pairs share a required prefix length $a_i$. It teaches you how to propagate state from one step to the next (changing characters only when forced to by the constraints).
+*   **Goal:** Practice building solutions incrementally while satisfying transition constraints.
+
+#### **Step 4: [1500] 1753A2 - Make Nonzero Sum (hard version)**
+*   **Link:** [Codeforces 1753A2](https://codeforces.com/problemset/problem/1753/A2)
+*   **Why last:** The hardest problem on the list combines **constructive algorithms with local adjustments**. You have to partition an array into subarrays to make an alternating sum equal to zero. When your greedy pairing fails or creates an imbalance, you need to look back or adjust pairs dynamically.
+*   **Goal:** Master advanced greedy pairing and parity-based adjustments under strict zero-sum constraints.
+
+---
+
+### 3. Common Patterns
+*   **Sort and Scan:** Sort elements descending/ascending to make the "best" choice always sit at the front (seen in *1472D*).
+*   **Parity/Alternation Management:** Handling alternating signs or alternating turns to balance outcomes (seen in *1472D* and *1753A2*).
+*   **Lazy Propagation / State Preservation:** Keeping characters or values the same as long as possible until a constraint forces a change (seen in *1384A*).
+
+---
+
+### 4. Common Mistakes
+*   **Failing to Prove the Local Optimum:** Assuming a strategy is greedy without checking if a locally good choice ruins a globally optimal solution later.
+*   **Forgetting Edge Cases with Sorting:** In game theory or pairing problems (like *1472D*), forgetting to handle cases with all evens, all odds, or negative/zero constraints.
+*   **Overcomplicating Constructive Steps:** In problems like *1384A*, trying to reinvent strings from scratch every time instead of mutating the previous string minimally.

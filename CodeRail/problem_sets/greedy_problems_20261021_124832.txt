@@ -1,0 +1,15 @@
+PROBLEMS FOR: GREEDY
+Rating: 800-1600
+
+1. 369A - Valera and Plates (Rating: 900)
+   URL: https://codeforces.com/problemset/problem/369/A
+
+2. 888B - Buggy Robot (Rating: 1000)
+   URL: https://codeforces.com/problemset/problem/888/B
+
+3. 178A2 - Educational Game (Rating: 1000)
+   URL: https://codeforces.com/problemset/problem/178/A2
+
+4. 1734C - Removing Smallest Multiples (Rating: 1200)
+   URL: https://codeforces.com/problemset/problem/1734/C
+

@@ -1,0 +1,33 @@
+PROBLEMS FOR: ALL
+Rating: 800-1800
+
+1. 1615A - Closing The Gap (Rating: 800)
+   URL: https://codeforces.com/problemset/problem/1615/A
+
+2. 2051C - Preparing for the Exam (Rating: 1000)
+   URL: https://codeforces.com/problemset/problem/2051/C
+
+3. 63B - Settlers' Training (Rating: 1200)
+   URL: https://codeforces.com/problemset/problem/63/B
+
+4. 1043B - Lost Array (Rating: 1200)
+   URL: https://codeforces.com/problemset/problem/1043/B
+
+5. 922A - Cloning Toys (Rating: 1300)
+   URL: https://codeforces.com/problemset/problem/922/A
+
+6. 46C - Hamsters and Tigers (Rating: 1600)
+   URL: https://codeforces.com/problemset/problem/46/C
+
+7. 183B - Zoo (Rating: 1700)
+   URL: https://codeforces.com/problemset/problem/183/B
+
+8. 1852B - Imbalanced Arrays (Rating: 1800)
+   URL: https://codeforces.com/problemset/problem/1852/B
+
+9. 1721D - Maximum AND (Rating: 1800)
+   URL: https://codeforces.com/problemset/problem/1721/D
+
+10. 30C - Shooting Gallery (Rating: 1800)
+   URL: https://codeforces.com/problemset/problem/30/C
+

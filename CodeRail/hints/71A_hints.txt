@@ -1,0 +1,28 @@
+HINTS FOR: 71A
+
+Here are 3 progressive hints for Codeforces problem **71A - Way Too Long Words**:
+
+### Hint 1: Basic Idea / Observation
+The problem has a simple threshold: **length strictly greater than 10** (`length > 10`).
+* If a word has 10 or fewer characters, it should be printed exactly as it was given.
+* If it has more than 10 characters, the abbreviation follows a fixed pattern: the first letter, the count of letters in between (which is `length - 2`), and the last letter.
+
+---
+
+### Hint 2: Algorithm and Time Complexity
+* **Approach:** Direct simulation / conditional string formatting. No advanced algorithms or data structures are required.
+* **Target Complexity:**
+  * **Time Complexity:** $O(|S|)$ per word (or $O(1)$ if the string length is retrieved in constant time). Across all $n$ words, the total time will be $O(\sum |S|) \approx 10^4$ operations at most, which runs in well under a few milliseconds.
+  * **Space Complexity:** $O(|S|)$ to store each word in memory, or $O(1)$ auxiliary space.
+
+---
+
+### Hint 3: High-Level Steps to Solve
+1. Read the integer $n$ denoting the number of words.
+2. For each of the $n$ words:
+   * Read the word as a string.
+   * Determine its length, say $L$.
+   * Check the condition:
+     * If $L > 10$: Output the first character (index `0`), followed by the number $L - 2$, followed by the last character (index `L - 1`).
+     * Otherwise: Output the string directly without changes.
+   * Make sure to print each result on a new line.

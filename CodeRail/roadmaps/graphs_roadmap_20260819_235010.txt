@@ -1,0 +1,96 @@
+ROADMAP FOR: GRAPHS
+Rating: 900 to 1200
+
+PROBLEMS:
+1. [900] 1055A - Metro
+   URL: https://codeforces.com/problemset/problem/1055/A
+
+2. [900] 948A - Protect Sheep
+   URL: https://codeforces.com/problemset/problem/948/A
+
+3. [1100] 1472C - Long Jumps
+   URL: https://codeforces.com/problemset/problem/1472/C
+
+4. [1100] 1829E - The Lakes
+   URL: https://codeforces.com/problemset/problem/1829/E
+
+5. [1200] 1559C - Mocha and Hiking
+   URL: https://codeforces.com/problemset/problem/1559/C
+
+6. [1200] 1510K - King's Task
+   URL: https://codeforces.com/problemset/problem/1510/K
+
+7. [1200] 344B - Simple Molecules
+   URL: https://codeforces.com/problemset/problem/344/B
+
+
+ROADMAP:
+
+Here is a structured practice roadmap tailored to the provided graph problems, designed to take you step-by-step from basic graph representation to implicit graphs and state-space exploration.
+
+---
+
+### 1. Core Concepts to Learn
+
+Before attempting the problems, ensure you understand these fundamental concepts:
+
+1. **Implicit Graphs & Grid Representation**: Not all graph problems give you explicit adjacency lists. Often, an array or a 2D grid acts as an implicit graph where neighbors are defined by index jumps or grid adjacencies (e.g., up/down/left/right).
+2. **Graph Traversals (DFS & BFS)**:
+   * **DFS (Depth-First Search)**: Ideal for exploring deep components, flood-fill on grids, and reachability.
+   * **BFS (Breadth-First Search)**: Ideal for finding the shortest path in unweighted graphs or state-space transitions.
+3. **Connected Components**: Groups of nodes where every node can reach every other node in the same group.
+4. **Directed Acyclic Graphs (DAGs)**: Graphs with directed edges and no cycles. Traversals on DAGs naturally link to Dynamic Programming.
+5. **State Space Graphs**: Problems where a whole "configuration" or array permutation acts as a graph vertex, and a valid operation acts as a directed edge.
+
+---
+
+### 2. Recommended Order to Solve & Justification
+
+The problems are ordered below to build your intuition progressively—starting with basic grid/array reachability, moving to connected components, transitioning to DAGs/state spaces, and finishing with constructive graph logic.
+
+| Step | Problem | Rating | Focus Area / Purpose |
+| :--- | :--- | :--- | :--- |
+| **1** | **[948A - Protect Sheep](https://codeforces.com/problemset/problem/948/A)** | 900 | **Grid Adjacency**: Understand 2D grid neighbor relations without complex graph structures. |
+| **2** | **[1055A - Metro](https://codeforces.com/problemset/problem/1055/A)** | 900 | **1D Reachability**: Learn reachability logic on a simple, directed 1D graph structure. |
+| **3** | **[1829E - The Lakes](https://codeforces.com/problemset/problem/1829/E)** | 1100 | **Flood Fill / Connected Components**: Standard DFS/BFS traversal on a 2D grid to aggregate component weights. |
+| **4** | **[1472C - Long Jumps](https://codeforces.com/problemset/problem/1472/C)** | 1100 | **Implicit DAG & Traversal/DP**: Learn to treat array jumping rules ($i \to i + a_i$) as a directed acyclic graph. |
+| **5** | **[1559C - Mocha and Hiking](https://codeforces.com/problemset/problem/1559/C)** | 1200 | **Constructive Graph Paths**: Finding a valid Eulerian/Hamiltonian path structure based on directed edge conditions. |
+| **6** | **[1510K - King's Task](https://codeforces.com/problemset/problem/1510/K)** | 1200 | **State-Space Graphs**: Modeling array operations as edges between state vertices and detecting cycles/reachable target states. |
+| **7** | **[344B - Simple Molecules](https://codeforces.com/problemset/problem/344/B)** | 1200 | **Graph Properties & Degree Matching**: Solving edge-count distribution across 3 vertices using algebraic/graph degree properties. |
+
+---
+
+### 3. Common Patterns
+
+* **2D Grid Delta Navigation**: 
+  Instead of multiple `if` conditions, use directional vectors for neighbor exploration:
+  ```cpp
+  int dx[] = {-1, 1, 0, 0};
+  int dy[] = {0, 0, -1, 1};
+  ```
+* **Array Index as Directed Edges ($i \to i + a_i$)**:
+  In problems like *Long Jumps*, treat index $i$ as a vertex and $i + a_i$ as a directed edge to combine DP memoization with graph reachability.
+* **Visited Array / State Tracking**:
+  Always use a `visited` array (or `grid[r][c] = 0` set directly in flood-fill) to avoid infinite cycles during traversal.
+* **Small State Space Graph Traversal**:
+  In permutation/operation problems (*King's Task*), if operations loop back to the initial state quickly, treat the sequence of operations as a simple walk on a state graph.
+
+---
+
+### 4. Common Mistakes
+
+1. **Grid Boundary Violations**:
+   * *Mistake*: Forgetting to check `0 <= nr < n && 0 <= nc < m` before checking neighbor conditions like `grid[nr][nc]`.
+   * *Fix*: Always validate boundaries first in your traversal logic.
+
+2. **Stack Overflow in DFS**:
+   * *Mistake*: Using recursive DFS on large grids/arrays ($N > 10^5$), causing recursion stack overflow.
+   * *Fix*: Use iterative BFS with a queue, or increase stack size limits if supported.
+
+3. **Re-visiting Nodes / Missing `visited` Flags**:
+   * *Mistake*: Infinite loops when graph states cycle.
+   * *Fix*: Mark nodes as visited immediately upon pushing them to the BFS queue or entering a DFS call, not when popping/exiting.
+
+4. **1-Based vs 0-Based Indexing Confusion**:
+   * *Mistake*: Off-by-one errors when problem statements use 1-based indexing for graph vertices or grid coordinates.
+   * *Fix*: Consistently convert inputs to 0-based indexing immediately upon reading them.

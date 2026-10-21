@@ -1,0 +1,9 @@
+PROBLEMS FOR: GREEDY
+Rating: 800-1000
+
+1. 2236A - Games on the Train (Rating: 800)
+   URL: https://codeforces.com/problemset/problem/2236/A
+
+2. 2230B - Digit String (Rating: 1000)
+   URL: https://codeforces.com/problemset/problem/2230/B
+

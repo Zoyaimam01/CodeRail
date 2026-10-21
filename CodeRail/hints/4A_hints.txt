@@ -1,0 +1,18 @@
+HINTS FOR: 4A
+
+Here are 3 progressive hints for **Codeforces 4A - Watermelon**:
+
+**Hint 1: Basic idea / observation**
+Think about what it means to divide the watermelon into *two* parts, and for *both* parts to have an *even* weight. If a number is split into two even integers, what must the original number itself be? Also, check the absolute minimum weight required to make this possible.
+
+**Hint 2: Algorithm and time complexity to aim for**
+You don't need any loops or complex data structures. This problem can be solved using a simple conditional (`if-else`) statement. 
+* Target Time Complexity: $O(1)$
+* Target Space Complexity: $O(1)$
+
+**Hint 3: High level steps to solve (no full code)**
+1. Read the input integer $w$ (the weight of the watermelon).
+2. Check two conditions using the modulo operator (`%`):
+   * Is the weight even? (`w % 2 == 0`)
+   * Is the weight strictly greater than 2? (Since the smallest possible split of even numbers is $2 + 2 = 4$, a weight of 2 cannot be divided into two positive even parts).
+3. If both conditions are met, print "YES". Otherwise, print "NO".

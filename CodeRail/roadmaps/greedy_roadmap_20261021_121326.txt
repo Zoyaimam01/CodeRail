@@ -1,0 +1,63 @@
+ROADMAP FOR: GREEDY
+Rating: 800 to 1000
+
+PROBLEMS:
+1. [800] 1688B - Patchouli's Magical Talisman
+   URL: https://codeforces.com/problemset/problem/1688/B
+
+2. [900] 1543B - Customising the Track
+   URL: https://codeforces.com/problemset/problem/1543/B
+
+
+ROADMAP:
+
+Here is a practice roadmap for the topic **Greedy**, tailored around the two selected problems.
+
+---
+
+### 1. Core Concepts to Learn
+Greedy algorithms make the locally optimal choice at each stage with the hope of finding the global optimum. To master greedy problems at the Div. 3 / Div. 2 A-B level, you need to understand:
+* **Exchange Arguments:** Proving that swapping any two elements in a suboptimal solution to make the greedy choice never worsens the result.
+* **Invariants:** Identifying a property of the problem that remains unchanged regardless of the operations you perform (e.g., the sum of elements).
+* **Parity and Bit Manipulation:** Recognizing how even/odd properties restrict your choices (crucial for problems involving divisors or bit operations).
+* **Minimizing/Maximizing Extremes:** Understanding that balancing elements evenly often minimizes differences (variance).
+
+---
+
+### 2. Order to Solve and Why
+
+The recommended order is to go from **1688B (Patchouli's Magical Talisman)** to **1543B (Customising the Track)**.
+
+#### **Step 1: 1688B - Patchouli's Magical Talisman** ([Link](https://codeforces.com/problemset/problem/1688/B))
+* **Difficulty:** 800
+* **Why first?** This problem teaches you to **analyze case structures** and find the absolute minimum cost operation. You have two operations: multiply an odd number by 2 (making it even), or divide an even number by 2. 
+* **The Insight:** 
+  * If there is at least one odd number in the array, you can use it to absorb all even numbers (convert evens to odds by multiplying, or just reduce evens by dividing until they become odd and then match them). The cost is simply the count of initially even numbers.
+  * If *all* numbers are even, you must pick one number and divide it until it becomes odd (paying 1 operation), and then it acts as the "odd seed" for the rest.
+* **Takeaway:** Look for the "free" operations or the cheapest catalyst that simplifies the whole array.
+
+#### **Step 2: 1543B - Customising the Track** ([Link](https://codeforces.com/problemset/problem/1543/B))
+* **Difficulty:** 900
+* **Why second?** This problem transitions you from operational greedy (doing steps) to **mathematical/constructive greedy** (distributing resources). 
+* **The Insight:** The total sum of the array remains constant. The absolute difference between any two elements contributes to the "inconvenience" of the track. To minimize the sum of absolute differences between all pairs, you must distribute the total sum as evenly as possible. 
+  * Let $S = \sum a_i$ and $N = \text{array size}$. 
+  * $R = S \bmod N$ elements will have value $\lfloor S/N \rfloor + 1$.
+  * $N - R$ elements will have value $\lfloor S/N \rfloor$.
+  * The maximum number of pairs is formed when you multiply the count of "large" elements by the count of "small" elements: $R \times (N - R)$.
+* **Takeaway:** Sometimes greedy isn't about simulating actions, but about finding the ideal final state and using math to calculate the cost instantly.
+
+---
+
+### 3. Common Patterns in Beginner Greedy Problems
+1. **The "Everything Becomes Equal" Pattern:** Many greedy problems require you to make all elements equal or parity-matching with the minimum number of moves. Look for a "pivot" element.
+2. **The "Water Level" / Balancing Pattern:** When asked to distribute items as evenly as possible, use modulo arithmetic ($S \bmod N$) to find how many elements get $\lfloor S/N \rfloor + 1$ versus $\lfloor S/N \rfloor$.
+3. **Parity Reduction:** In problems involving multiplication/division by 2, count the number of factors of 2 (using `__builtin_ctz` in C++). This is a recurring sub-pattern.
+
+---
+
+### 4. Common Mistakes to Avoid
+* **Simulating when Math is Needed:** In problems like 1543B, trying to write a loop that increments/decrements elements one-by-one will result in a Time Limit Exceeded (TLE). Jump straight to the formula using division and modulo.
+* **Ignoring Edge Cases:** 
+  * In 1688B, forgetting to handle the case where *all* numbers are even vs. *some* numbers are odd.
+  * In 1543B, forgetting that integer overflow can happen if the sum $S$ is very large (use 64-bit integers like `long long` in C++).
+* **Overcomplicating the Choice:** Greedy algorithms fail when you try to look too far ahead. Trust the local optimum if you can prove it maintains the invariant.

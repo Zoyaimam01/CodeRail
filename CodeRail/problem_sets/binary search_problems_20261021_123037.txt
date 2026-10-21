@@ -1,0 +1,18 @@
+PROBLEMS FOR: BINARY SEARCH
+Rating: 800-1600
+
+1. 1671C - Dolce Vita (Rating: 1200)
+   URL: https://codeforces.com/problemset/problem/1671/C
+
+2. 1807E - Interview (Rating: 1300)
+   URL: https://codeforces.com/problemset/problem/1807/E
+
+3. 1354C1 - Simple Polygon Embedding (Rating: 1400)
+   URL: https://codeforces.com/problemset/problem/1354/C1
+
+4. 1010A - Fly (Rating: 1500)
+   URL: https://codeforces.com/problemset/problem/1010/A
+
+5. 1198B - Welfare State (Rating: 1600)
+   URL: https://codeforces.com/problemset/problem/1198/B
+

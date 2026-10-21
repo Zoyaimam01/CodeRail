@@ -1,0 +1,15 @@
+PROBLEMS FOR: GREEDY
+Rating: 800-1600
+
+1. 1735A - Working Week (Rating: 800)
+   URL: https://codeforces.com/problemset/problem/1735/A
+
+2. 1811C - Restore the Array (Rating: 1100)
+   URL: https://codeforces.com/problemset/problem/1811/C
+
+3. 355B - Vasya and Public Transport (Rating: 1100)
+   URL: https://codeforces.com/problemset/problem/355/B
+
+4. 1281B - Azamon Web Services (Rating: 1600)
+   URL: https://codeforces.com/problemset/problem/1281/B
+

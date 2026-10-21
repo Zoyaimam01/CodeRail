@@ -1,0 +1,8 @@
+PROBLEMS FOR: GREEDY
+
+1. 1734A - Select Three Sticks (Rating: 800)
+   URL: https://codeforces.com/problemset/problem/1734/A
+
+2. 1732B - Ugu (Rating: 900)
+   URL: https://codeforces.com/problemset/problem/1732/B
+
